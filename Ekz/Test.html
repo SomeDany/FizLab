@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Веклич Д.Н.</title>
+    <meta charset="utf-8">
+    <style>
+        .container{
+            border: 3px solid black;
+            border-radius: 10px;
+            width: 60%;
+            padding: 20px;
+            display: none;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body style="background-color:#ffffff">
+    <p style="margin-left:650px; font-weight:bold"> Тест </p><hr>
+    <ul>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="MainPage.html">Главная</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Tasks.html">Задачи</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Registration.html">Форма регистрации и входа</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Feedback.html">Форма обратной связи</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Test.html">Тест</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Animation.html">Анимация</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="AnimMod.html">Модель лабораторной работы</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="VidLessons.html">Видеоуроки</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Books.html">Книги</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="About.html">Об авторе</a></li>
+    </ul>
+    
+
+    <div class="container">
+        1. Свинцовый шар падает с высоты 5 м на землю. Сопротивление воздуха пренебрежимо мало. Механическая энергия шара была <hr>
+        <input type="radio" name="ans1" > минимальной на высоте 5 м <br>
+        <input type="radio" name="ans1" id="correct1" > одинаковой на всех высотах в течение процесса падения <br>
+        <input type="radio" name="ans1" > минимальной на высоте 2,5 м <br>
+        <input type="radio" name="ans1" > максимальной на высоте 0 м, непосредственно перед ударом о землю <br><br>
+
+        <button class="next" onclick="next(1)">Следующий вопрос</button>
+    </div>
+
+    <div class="container">
+        2. Тело массой 3 кг поднято на высоту 10 м. Какова потенциальная энергия тела: <hr>
+        <input type="radio" name="ans2" > 30 Дж <br>
+        <input type="radio" name="ans2" > 600 Дж <br>
+        <input type="radio" name="ans2" > 60 Дж <br>
+        <input type="radio" name="ans2" id="correct2"> 300 Дж <br><br>
+
+        <button class="next" onclick="next(2)">Следующий вопрос</button>
+    </div>
+
+    <div class="container">
+        3. Масса легкового автомобиля 1,5т, а трактора 5т. Скорости движения тел одинаковы. Какое из тел обладает большей кинетической энергией? <hr>
+        <input type="radio" name="ans3" id="correct3"> Кинетическая энергия трактора больше <br>
+        <input type="radio" name="ans3" > Кинетическая энергия тел одинакова <br>
+        <input type="radio" name="ans3" > Кинетическая энергия легкового автомобиля больше <br>
+        <input type="radio" name="ans3" > Определенного ответа дать нельзя <br><br>
+
+        <button class="next" onclick="next(3)">Следующий вопрос</button>
+    </div>
+
+    <div class="container">
+        4. Какое выражение соответствует определению потенциальной энергии поднятого над Землей тела? <hr>
+        <input type="radio" name="ans4" > mv^2/2 <br>
+        <input type="radio" name="ans4" > kx^2/2 <br>
+        <input type="radio" name="ans4" > mgh/2  <br>
+        <input type="radio" name="ans4" id="correct4"> mgh <br><br>
+
+        <button class="next" onclick="next(4)">Следующий вопрос</button>
+    </div>
+
+    <div class="container">
+        5. Какие из перечисленных тел обладают кинетической энергией? <hr>
+        <input type="checkbox" name="ans4" id="correct51"> Летящий самолет <br>
+        <input type="checkbox" name="ans4" > Камень, поднятый над землей <br>
+        <input type="checkbox" name="ans4" > Растянутая пружина <br>
+        <input type="checkbox" name="ans4" id="correct52"> Двигающаяся машина <br><br>
+
+        <button class="next" onclick="next(5)">Следующий вопрос</button>
+    </div>
+
+    <div class="container">
+        6. Какие из перечисленных тел обладают потенциальной энергией? <hr>
+        <input type="checkbox" name="ans4" > Катящийся по земле шар <br>
+        <input type="checkbox" name="ans4"  id="correct61"> Лук с натянутой тетивой <br>
+        <input type="checkbox" name="ans4" > Летящий шарик <br>
+        <input type="checkbox" name="ans4" id="correct62"> Сжатая пружина <br><br>
+
+        <button class="next" onclick="next(6)">Следующий вопрос</button>
+    </div>
+
+    <div class="container">
+        7. Определите кинетическую энергия тела массой 150 г, которое движется со скоростью 4 м/с. Ответ дать в Дж.<hr>
+        <input type="text" id="7" placeholder="Введите ответ" /> <br><br>
+
+        <button class="next" onclick="next(7)">Следующий вопрос</button>
+    </div>
+
+    <div class="container">
+        8. Определить энергию деформации пружины жесткостью 30 Н/м при сжатии на 10 см. Ответ дать в Дж <hr>
+        <input type="text" id="8" placeholder="Введите ответ" /> <br><br>
+
+        <input type="button" value="Проверить" id="button" onclick="Res()" />
+    </div>
+
+    
+    
+    <script>
+        document.getElementsByClassName("container")[0].style.display = "block";
+        function next(id) {
+            document.getElementsByClassName("container")[id-1].style.display = "none";
+            document.getElementsByClassName("container")[id].style.display = "block";
+        }
+
+        function Res(){
+            let Result=0;
+            if (document.getElementById('correct1').checked){
+                Result++;
+            }
+            if (document.getElementById('correct2').checked){
+                Result++;
+            }
+            if (document.getElementById('correct3').checked){
+                Result++;
+            }
+            if (document.getElementById('correct4').checked){
+                Result++;
+            }
+            if (document.getElementById('correct51').checked && document.getElementById('correct52')){
+                Result++;
+            }
+            if (document.getElementById('correct61').checked && document.getElementById('correct62')){
+                Result++;
+            }
+            if (document.getElementById('7').value == "1,2" || document.getElementById('7').value == "1.2"){
+                Result++;
+            }
+            if (document.getElementById('8').value == "0.15" || document.getElementById('8').value == "0,15"){
+                Result++;
+            }
+            alert("Вы ответили правильно на " + Result + " из 8")
+            location.reload ()
+
+        }
+    </script>
+</body> 
+</html>

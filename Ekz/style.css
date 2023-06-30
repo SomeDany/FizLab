@@ -1,0 +1,113 @@
+#block {
+  
+    --wM: 1px;        /* Толщина линии */
+    --xM: 15px;       /* Отступ по ширине */
+    --yM: 15px;       /* Отступ по высоте */
+    --cM: #ccc;       /* Цвет линии */
+    
+    --wB: 1px;        /* Толщина линии */
+    --xB: 150px;      /* Отступ по ширине */
+    --yB: 150px;      /* Отступ по высоте */
+    --cB: #333; /* Цвет линии */
+    
+    background-position: -1px 0;
+    background-image:
+      linear-gradient(90deg, var(--cB) var(--wB), transparent var(--wB)),
+      linear-gradient(0deg, var(--cB) var(--wB), transparent var(--wB)),
+      linear-gradient(90deg, var(--cM) var(--wM), transparent var(--wM)),
+      linear-gradient(0deg, var(--cM) var(--wM), transparent var(--wM));
+    background-size: 
+      var(--xB) 100%, 100% var(--yB),
+      var(--xM) 100%, 100% var(--yM);
+  }
+  
+  #block {
+    width: 1650px;
+    height: 900px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    top: 150px;
+  }
+  #graph{
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    top: 150px;
+  }
+  #dynam{
+    width: 150px;
+    height: 50px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 290px;
+    top: 500px;
+    background-image: url(img/dynam.png);
+  }
+  #dynline{
+    width: 1px;
+    height: 40px;
+    border: 1px solid red;
+    box-sizing: border-box;
+    position: absolute;
+    left: 324px;
+    top: 500px;
+
+  }
+  #standp{
+    width: 300px;
+    height: 450px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    top: 450px;
+    background-image: url(img/stand.png);
+    z-index: 2;
+  }
+  #standp2{
+    width: 300px;
+    height: 450px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 1350px;
+    top: 450px;
+    background-image: url(img/stand1.png);
+    z-index: 2;
+  }
+  #Start {
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #168709;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+  #Move {
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #a3bf08;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+  #Reset {
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #bf1a08;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+  #Open{
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #2b9336;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+  }

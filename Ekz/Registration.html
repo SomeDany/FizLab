@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Веклич Д.Н.</title>
+</head>
+<body style="background-color:#ffffff">
+    <p style="margin-left:650px; font-weight:bold"> Форма регистрации и входа </p><hr>
+    <ul>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="MainPage.html">Главная</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Tasks.html">Задачи</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Registration.html">Форма регистрации и входа</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Feedback.html">Форма обратной связи</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Test.html">Тест</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Animation.html">Анимация</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="AnimMod.html">Модель лабораторной работы</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="VidLessons.html">Видеоуроки</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Books.html">Книги</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="About.html">Об авторе</a></li>
+    </ul>
+    <table>
+        <tr><td><label>Регистрация</label></td><td><label>Вход</label></td></tr>
+        <tr> <td><input type="text" id="usernameReg" placeholder="Введите имя" /></td> <td><input type="text" id="usernameLog" placeholder="Введите имя" /></td> </tr>
+        <tr> <td><input type="text" id="passwordReg" placeholder="Введите пароль" /></td> <td><input type="text" id="passwordLog" placeholder="Введите пароль" /></td> </tr>
+        <tr> <td><input type="button" value="Регистрация" onclick="SingUp()" /></td> <td><input type="button" value="Вход" onclick="SingIn()" /></td> </tr>
+    </table>
+   
+    <script>
+        function SingUp() {
+            var usernameReg = document.getElementById("usernameReg").value;
+            var passwordReg = document.getElementById("passwordReg").value;
+
+            if (usernameReg == "" || null) {
+                alert("Введите имя пользователя.");
+                return false;
+            }
+            if (passwordReg == "" || null) {
+                alert("Введите пароль.");
+                return false;
+            }
+
+            localStorage.setItem("usernameReg", usernameReg);
+            localStorage.setItem("passwordReg", passwordReg);
+            alert("Вы успешно зарегестрировались!");
+        }
+        function SingIn() { 
+            var usernameLog = document.getElementById("usernameLog").value;
+            var passwordLog = document.getElementById("passwordLog").value;
+
+            const name = localStorage.getItem('usernameReg');
+            const pass = localStorage.getItem('passwordReg');
+
+            if (usernameLog == "" || null) {
+                alert("Введите имя пользователя.");
+                return false;
+            }
+            if (passwordLog == "" || null) {
+                alert("Введите пароль");
+                return false;
+            }
+            if (usernameLog == name && passwordLog == pass) {
+                alert("Вы успешно вошли.");
+            } else { alert("Неверное имя пользователя или пароль!");}
+
+        }
+    </script>
+</body>
+</html>
+

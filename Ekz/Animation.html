@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Веклич Д.Н.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body  style="background-color:#ffffff">
+    <p style="margin-left:650px; font-weight:bold"> Анимация </p><hr>
+    <ul>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="MainPage.html">Главная</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Tasks.html">Задачи</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Registration.html">Форма регистрации и входа</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Feedback.html">Форма обратной связи</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Test.html">Тест</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Animation.html">Анимация</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="AnimMod.html">Модель лабораторной работы</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="VidLessons.html">Видеоуроки</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="Books.html">Книги</a></li>
+        <li style="display: inline-block; padding: 5px; border-radius: 10px; box-shadow: 0 0 0 3px #000000;"><a href="About.html">Об авторе</a></li>
+        
+    </ul>
+
+
+    <!-- Основная часть  -->
+    
+    <div id="param">
+      Масса шара: 
+      <input type="number" id="mass" style="width: 50px;" value="0.8" min="0.5" max="3" step="0.1" onkeyup="if(value<min) value=min; if(value>max) value = max" required/>
+      <input type="button" id="Move" value="Переместить" onclick="Anim()" />
+      <input type="button" id="Start" value="Запуск" onclick="ballFall()" disabled="true"/>
+      <input type="button" id="Reset" value="Обновить" onclick="location.reload()" />
+
+
+    </div>
+    <div id="block">
+        <div id="dynam"></div>
+        <div id="dynline"></div>
+
+        <div id="standp"></div>
+
+        <div id="container"></div>
+        <div id="standp2"> </div>
+    </div>
+    <canvas id="graph" width="1650" height="900"></canvas>
+    <!-- Основная часть  -->
+    
+    <script>
+      var canvas = document.getElementById('graph');
+      var ctx = canvas.getContext('2d');
+      var line = canvas.getContext('2d');
+      
+      let dynline = document.getElementById("dynline");
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black';
+      ctx.arc(1200, 870, 22.5, 0, 2 * Math.PI);
+      ctx.fill();
+
+      line.beginPath();
+      line.moveTo(435, 510);
+      line.lineTo(1200, 875);
+      line.stroke();
+
+      ///////////////// Перемещение к нач. точке /////////////////
+
+      function Anim(){
+       
+      
+        let start = Date.now();
+        let timer = setInterval(function(){
+          let timePassed = Date.now() - start;
+
+          if(timePassed >= 1500){
+            clearInterval(timer);
+            return;
+          }
+
+          draw(timePassed);
+        }, 24);
+
+        
+        function draw(timePassed){
+          ctx.clearRect(0,0,1645,895);
+          r = 22.5;
+          r1=0;
+          r2=2 * Math.PI;
+
+          ctx.beginPath();
+          x = 1200 + timePassed/10;
+          y = 870 - timePassed/4;
+          ctx.arc(x,y,r,r1,r2);
+          ctx.closePath();
+
+          ctx.fillStyle="black";
+          ctx.fill();
+          ctx.stroke();
+          
+          line.beginPath();
+          line.moveTo(435, 510);
+          line.lineTo(x, y);
+          line.stroke();
+
+        }
+        
+        ///////////////////////////////////////////////////////
+
+        /// Смещение шара вправо на 40px ( 2 Н по динамометру) ///
+
+        function Move(){
+          let start2 = Date.now();
+          
+          let timer2 = setInterval(function(){
+            let timePassed2 = Date.now() - start2;
+            
+            if(timePassed2 >= 1500){
+              clearInterval(timer2);console.log(timePassed2);
+              return;
+            }
+            draw2(timePassed2);
+          }, 24);
+          
+          function draw2(timePassed2){
+            ctx.clearRect(0,0,1645,895);
+            r = 22.5;
+            r1=0;
+            r2=2 * Math.PI;
+            ctx.beginPath();
+            x = 1348.8 + timePassed2/37.5;
+            ctx.arc(x,y,r,r1,r2);
+            ctx.closePath();
+            ctx.fillStyle="black";
+            ctx.fill();
+            ctx.stroke();
+            
+
+            line.beginPath();
+            line.moveTo(435, 510);
+            line.lineTo(x, y);
+            line.stroke();
+            dynline.style.left = 320 + timePassed2 / 37.5 + 'px';
+          }
+          
+        }
+        setTimeout(function(){Move();}, 2500);
+        
+        /////////////////////////////////////////////////////////////
+
+        ///
+        const MoveB = document.getElementById('Move');
+        MoveB.disabled = true;
+        
+        function buttons(){
+          const StartB = document.getElementById('Start');
+          StartB.disabled = false;
+        }
+        setInterval(() => buttons(), 4300);
+        
+      }
+      
+      
+      function randomNumber(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+      
+      
+
+      ///////////// Падение шара по дуге /////////////////////////////////
+      function ballFall(){
+        let m = parseFloat(document.getElementById('mass').value);
+        let h = 0.35;
+        let g = 10;
+        let f = 2;
+      
+        let Sx = 1348.8 - Math.sqrt((4 * f * h) / (m * g)) * 100 * 15 + randomNumber(-20,20);
+        
+        let start = Date.now();
+        let timer = setInterval(function(){
+          let timePassed = Date.now() - start;
+
+          if(timePassed >= 500){
+            clearInterval(timer);
+            return;
+          }
+
+          draw(timePassed);
+        }, 24);
+
+        function draw(timePassed){
+          ctx.clearRect(0,0,1645,895);
+          r = 22.5;
+          r1=0;
+          r2=2 * Math.PI;
+          ctx.beginPath();
+          x = 1388.8 - timePassed/12.5;
+          y = 497.75;
+          ctx.arc(x,y,r,r1,r2);
+          ctx.closePath();
+          ctx.fillStyle="black";
+          ctx.fill();
+          ctx.stroke();
+
+          line.beginPath();
+          line.moveTo(435, 510);
+          line.lineTo(x, y);
+          line.stroke();
+          dynline.style.left = 360 - timePassed / 12.5 + 'px';
+        }
+        
+        function fall(){
+          let startX = 1348.8;
+          let startY = 497.75;
+          let r = 22.5;
+          let r1= 0;
+          let r2= 2 * Math.PI;
+          let endX = Sx;
+          let endY = 877.5;
+          let controlX = 1100;
+          let controlY = 470;
+
+          let t=0;
+          let duration = 1000;
+          let startTime = null;
+
+          function anim(currentTime){
+            if(!startTime){
+                startTime = currentTime;
+            }
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            
+            const x = (1 - progress) ** 2 * startX + 2 * (1 - progress) * progress * controlX + progress ** 2 * endX;
+            const y = (1 - progress) ** 2 * startY + 2 * (1 - progress) * progress * controlY + progress ** 2 * endY;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.arc(x, y, 22.5, 0, 2 * Math.PI);
+            ctx.fillStyle = 'black';
+            ctx.fill();
+            line.beginPath();
+            line.moveTo(435, 510);
+            line.lineTo(x, y);
+            line.stroke();
+            
+            if(progress < 1){
+                requestAnimationFrame(anim);
+            }
+          }
+          requestAnimationFrame(anim);
+          
+        }
+        
+        setTimeout(() => {
+          fall();
+        }, 550);
+        //////////////////////////////////////
+
+      }
+
+    </script>
+</body>
+</html>
